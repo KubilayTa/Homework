@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Homework</title>
+</head>
+<body>
+   <h1>Hallo Pexonian, trage hier deine Zertifizierungen ein!</h1>
+
+   <form method="post">
+        <div class="form-group">
+         <label for="title">Zertifizierung unten eingeben:</label>
+            <input type="text" name="zertifizierung" class="form-control"
+                  value="{{ request.form['zertifizierung'] }}"></input>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+   {% for cloudzertifizierung in cloudzertifizierungen %}
+            <h2>{{ cloudzertifizierung['zertifizierung'] }}</h2>
+        <hr>
+    {% endfor %}
+</body>
+</html>
